@@ -1,4 +1,4 @@
-require './x_files'
+require './app/x_files'
 require 'test/unit'
 require 'rack/test'
 

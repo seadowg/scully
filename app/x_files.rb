@@ -33,11 +33,11 @@ end
 
 class XFilesEpisode
   def self.find_by_name(name)
-    Psych.load_file('episodes.yml')[name.downcase]
+    Psych.load_file('./db/episodes.yml')[name.downcase]
   end
 
   def self.find_by_id(id)
-    result = Psych.load_file('episodes.yml').select { |name, episode|
+    result = Psych.load_file('./db/episodes.yml').select { |name, episode|
       episode['id'] == id.to_i
     }
 

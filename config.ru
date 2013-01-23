@@ -1,3 +1,3 @@
-require './x_files'
+require './app/x_files'
 
 run XFiles
