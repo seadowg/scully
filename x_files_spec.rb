@@ -37,4 +37,16 @@ class XFilesTest < Test::Unit::TestCase
     assert last_response.ok?
     assert last_response.body.include? 'Fallen Angel'
   end
+
+  def test_it_returns_next_episode_not_found
+    get "/episodes/-1/next"
+    assert last_response.redirect?
+    assert last_response["Location"].include? '/404'
+  end
+
+  def test_it_redirects_404_to_fbi_website
+    get "/404"
+    assert last_response.redirect?
+    assert last_response["Location"].include? 'http://www.fbi.gov'
+  end
 end

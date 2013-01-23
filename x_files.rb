@@ -12,13 +12,22 @@ class XFiles < Sinatra::Base
     if episode
       redirect "/episodes/#{episode['id']}/next"
     else
-      status 404
       redirect "/404"
     end
   end
 
   get '/episodes/:id/next' do
-    XFilesEpisode.find_by_id(params[:id])["next"]
+    episode = XFilesEpisode.find_by_id(params[:id])
+
+    if episode
+      episode['next']
+    else
+      redirect "/404"
+    end
+  end
+
+  get '/404' do
+    redirect 'http://www.fbi.gov'
   end
 end
 
@@ -28,8 +37,14 @@ class XFilesEpisode
   end
 
   def self.find_by_id(id)
-    Psych.load_file('episodes.yml').select { |name, episode|
+    result = Psych.load_file('episodes.yml').select { |name, episode|
       episode['id'] == id.to_i
-    }.first[1]
+    }
+
+    if result.length > 0
+      result.first[1]
+    else
+      nil
+    end
   end
 end
