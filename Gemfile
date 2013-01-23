@@ -3,4 +3,6 @@ source :rubygems
 gem 'thin'
 gem 'sinatra'
 
-gem 'rack-test'
+group :test do
+  gem 'rack-test'
+end
