@@ -1,11 +1,18 @@
 <html>
 	<head>
 		<title>Skully</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        document.getElementById('episode_name').focus()
+      }
+    </script>
 	</head>
 	<body>
-		<h2>The truth is out there</h2>
+		The truth is out there...
+    <br>
+    <br>
 		<form action="/episodes/search" method="get" >
-			<input type="text" name="name"><br>
+			C:\><input type="text" name="name" id="episode_name" autocomplete="off">
 		</form>
 	</body>
 </html>
