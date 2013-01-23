@@ -3,7 +3,7 @@ require 'psych'
 
 class XFiles < Sinatra::Base
   get'/' do
-    'The truth is out there...'
+    File.read(File.join('public', 'index.html'))
   end
 
   get '/episodes/search' do
