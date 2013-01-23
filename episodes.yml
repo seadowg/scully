@@ -4,3 +4,69 @@
 "deep throat":
   id: 2
   next: Fallen Angel
+"squeeze":
+  id: 3
+  next: Fallen Angel
+"conduit":
+  id: 4
+  next: Fallen Angel
+"the jersey devil":
+  id: 5
+  next: Fallen Angel
+"ghost in the machine":
+  id: 6
+  next: Fallen Angel
+"shadows":
+  id: 7
+  next: Fallen Angel
+"ice":
+  id: 8
+  next: Fallen Angel
+"space":
+  id: 9
+  next: Fallen Angel
+"fallen angel":
+  id: 10
+  next: Fallen Angel
+"eve":
+  id: 11
+  next: E.B.E
+"fire":
+  id: 12
+  next: E.B.E
+"beyond the sea":
+  id: 13
+  next: E.B.E
+"gender bender":
+  id: 14
+  next: E.B.E
+"lazarus":
+  id: 15
+  next: E.B.E
+"young at heart":
+  id: 16
+  next: E.B.E
+"e.b.e":
+  id: 17
+  next: E.B.E
+"miracle man":
+  id: 18
+  next: The Erlenmeyer Flask
+"shapes":
+  id: 19
+  next: The Erlenmeyer Flask
+"darkness falls":
+  id: 20
+  next: The Erlenmeyer Flask
+"tooms":
+  id: 21
+  next: The Erlenmeyer Flask
+"born again":
+  id: 22
+  next: The Erlenmeyer Flask
+"roland":
+  id: 23
+  next: The Erlenmeyer Flask
+"the erlenmeyer flask":
+  id: 24
+  next: The Erlenmeyer Flask

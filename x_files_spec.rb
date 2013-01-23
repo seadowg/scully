@@ -21,9 +21,9 @@ class XFilesTest < Test::Unit::TestCase
     assert last_response.redirect?
     assert last_response["Location"].include? '/episodes/1/next'
 
-    get '/episodes/search?name=The%20List'
+    get '/episodes/search?name=young%20at%20heart'
     assert last_response.redirect?
-    assert last_response["Location"].include? '/episodes/54/next'
+    assert last_response["Location"].include? '/episodes/16/next'
   end
 
   def test_it_redirects_non_matching_search_result
