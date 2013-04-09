@@ -16,16 +16,6 @@ class XFilesTest < Test::Unit::TestCase
     assert last_response.ok?
   end
 
-  def test_it_redirects_matching_search_result
-    get '/episodes/search?name=pilot'
-    assert last_response.redirect?
-    assert last_response["Location"].include? '/episodes/1/next'
-
-    get '/episodes/search?name=young%20at%20heart'
-    assert last_response.redirect?
-    assert last_response["Location"].include? '/episodes/16/next'
-  end
-
   def test_it_redirects_non_matching_search_result
     get "/episodes/search?name=not%20an%20episode"
     assert last_response.redirect?
@@ -33,15 +23,9 @@ class XFilesTest < Test::Unit::TestCase
   end
 
   def test_it_returns_next_episode_successfully
-    get "/episodes/2/next"
+    get "/episodes/search?name=conduit"
     assert last_response.ok?
-    assert last_response.body.include? 'Fallen Angel'
-  end
-
-  def test_it_returns_next_episode_not_found
-    get "/episodes/-1/next"
-    assert last_response.redirect?
-    assert last_response["Location"].include? '/404'
+    assert last_response.body.include? "{\"episode\":\"Fallen Angel\"}"
   end
   
   def test_it_redirect_not_found_error_to_404

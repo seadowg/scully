@@ -5,6 +5,34 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
+        function setupTextChange() {
+          $('#episode_input').one('keydown', function() {
+            displayNextEpisode("");
+          });
+        }
+        
+        function fetchNextEpisode() {
+          $.ajax({
+            type: "GET",
+            url: "/episodes/search",
+            dataType: "json",
+            data: $('#episode_input').serialize(),
+            success: function(data) {
+              setupTextChange();
+              displayNextEpisode(data['episode']);
+            }
+          });
+        }
+        
+        function displayNextEpisode(episode) {
+          $("#next_episode").text(episode);
+        }
+        
+        $('#episode_form').submit(function(ev, data) {
+          ev.preventDefault();
+          fetchNextEpisode();
+        });
+        
         $('#episode_input').focus();
       });
     </script>
@@ -13,8 +41,9 @@
 		The truth is out there...
     <br>
     <br>
-		<form action="/episodes/search" method="get" >
+		<form id="episode_form">
 			C:\>  <input type="text" name="name" id="episode_input" class="episode_input" autocomplete="off">
 		</form>
+    <span id="next_episode"></span>
 	</body>
 </html>

@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'psych'
+require 'json'
 
 class XFiles < Sinatra::Base
   set :public_folder, 'public'
@@ -11,18 +12,10 @@ class XFiles < Sinatra::Base
   get '/episodes/search' do
     episode = XFilesEpisode.find_by_name(params[:name])
 
+    content_type :json
+    
     if episode
-      redirect "/episodes/#{episode['id']}/next"
-    else
-      redirect "/404"
-    end
-  end
-
-  get '/episodes/:id/next' do
-    episode = XFilesEpisode.find_by_id(params[:id])
-
-    if episode
-      episode['next']
+      { :episode => episode['next'] }.to_json
     else
       redirect "/404"
     end
