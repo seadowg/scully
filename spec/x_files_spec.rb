@@ -43,6 +43,12 @@ class XFilesTest < Test::Unit::TestCase
     assert last_response.redirect?
     assert last_response["Location"].include? '/404'
   end
+  
+  def test_it_redirect_not_found_error_to_404
+    get "/i_am_not_a_valid_route_hopefully"
+    assert last_response.redirect?
+    assert last_response["Location"].include? '/404'
+  end
 
   def test_it_redirects_404_to_fbi_website
     get "/404"

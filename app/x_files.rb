@@ -2,6 +2,8 @@ require 'sinatra'
 require 'psych'
 
 class XFiles < Sinatra::Base
+  set :public_folder, 'public'
+  
   get'/' do
     File.read(File.join('public', 'index.html'))
   end
@@ -28,6 +30,10 @@ class XFiles < Sinatra::Base
 
   get '/404' do
     redirect 'http://www.fbi.gov'
+  end
+  
+  not_found do
+    redirect '/404'
   end
 end
 
