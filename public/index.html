@@ -1,9 +1,10 @@
 <html>
 	<head>
 		<title>Skully</title>
+    <link href="master.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
       window.onload = function () {
-        document.getElementById('episode_name').focus()
+        document.getElementById('episode_input').focus();
       }
     </script>
 	</head>
@@ -12,7 +13,7 @@
     <br>
     <br>
 		<form action="/episodes/search" method="get" >
-			C:\><input type="text" name="name" id="episode_name" autocomplete="off">
+			C:\>  <input type="text" name="name" id="episode_input"class="episode_input" autocomplete="off">
 		</form>
 	</body>
 </html>

@@ -1,0 +1,16 @@
+* {
+  background-color: black;
+  color: #00EE00;
+  font-size: 36px;
+  font-family: Courier;
+}
+
+
+input {
+  border: 0px;
+}
+
+input:focus {
+  outline: none;
+  border: 0px;
+}
