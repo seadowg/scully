@@ -10,23 +10,14 @@ class XFiles < Sinatra::Base
   end
 
   get '/episodes/search' do
-    episode = XFilesEpisode.find_by_name(params[:name])
-
     content_type :json
+    episode = XFilesEpisode.find_by_name(params[:name])
     
     if episode
       { :episode => episode['next'] }.to_json
     else
-      redirect "/404"
+      404
     end
-  end
-
-  get '/404' do
-    redirect 'http://www.fbi.gov'
-  end
-  
-  not_found do
-    redirect '/404'
   end
 end
 
