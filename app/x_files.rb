@@ -14,7 +14,7 @@ class XFiles < Sinatra::Base
     episode = XFilesEpisode.find_by_name(params[:name])
 
     if episode
-      { :episode => episode['next'] }.to_json
+      { :next => episode['next'] }.to_json
     else
       404
     end

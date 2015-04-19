@@ -9,15 +9,15 @@ var formSubmits = function(el) {
       data: $('#episode_input').serialize(),
     })));
   });
-  
+
   return submits;
 };
 
-$(document).ready(function() {  
+$(document).ready(function() {
   var submits = formSubmits($('#episode_form'));
-  var responses = submits.map(function(data) { return data['episode'] });
+  var responses = submits.map(function(data) { return "Skip to: " + data['next'] });
   var keydowns = $('#episode_input').asEventStream('keydown');
   responses.merge(keydowns.map("")).assign($("#next_episode"), "text");
-  
+
   $('#episode_input').focus();
 });
